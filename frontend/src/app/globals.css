@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+@import "../styles/tokens.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-surface text-on-surface font-body antialiased;
+}
+
+.glass-surface {
+  @apply bg-surface/80 backdrop-blur-glass;
+}
+
+.ghost-border {
+  @apply ring-1 ring-outline-variant/15;
+}

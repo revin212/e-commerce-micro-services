@@ -1,0 +1,16 @@
+{
+  "query": "lamp",
+  "suggestions": ["linen", "lamp", "lounge chair"],
+  "collections": ["Lighting", "Furniture", "Decor"],
+  "results": [
+    {
+      "id": "p_1",
+      "slug": "atelier-lamp",
+      "name": "Atelier Lamp",
+      "description": "Soft architectural task light",
+      "price": { "amount": 189, "currency": "USD" },
+      "images": ["/fixtures/lamp.png"],
+      "variants": [{ "id": "v1", "color": "Sand", "size": "One Size", "inStock": true }]
+    }
+  ]
+}

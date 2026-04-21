@@ -1,0 +1,12 @@
+{
+  "kpis": [
+    { "label": "Revenue", "value": "$128k", "trend": "up" },
+    { "label": "Orders", "value": "1,423", "trend": "up" },
+    { "label": "Stock Alerts", "value": "12", "trend": "flat" }
+  ],
+  "inventory": [
+    { "productId": "p_1", "sku": "ATL-001", "stock": 22, "lowStock": false, "status": "in_stock" },
+    { "productId": "p_2", "sku": "CON-204", "stock": 4, "lowStock": true, "status": "low_stock" },
+    { "productId": "p_3", "sku": "RUG-101", "stock": 0, "lowStock": true, "status": "out_of_stock" }
+  ]
+}

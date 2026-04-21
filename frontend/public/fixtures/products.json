@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "p_1",
+      "slug": "atelier-lamp",
+      "name": "Atelier Lamp",
+      "description": "Soft architectural task light",
+      "price": { "amount": 189, "currency": "USD" },
+      "images": ["/fixtures/lamp.png"],
+      "rating": { "average": 4.8, "count": 112 },
+      "badges": ["new"],
+      "variants": [{ "id": "v1", "color": "Sand", "size": "One Size", "inStock": true }]
+    }
+  ],
+  "page": 1,
+  "pageSize": 12,
+  "total": 1
+}

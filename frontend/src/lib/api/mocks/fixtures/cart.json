@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "productId": "p_1", "name": "Atelier Lamp", "quantity": 1, "price": 189 },
+    { "productId": "p_2", "name": "Contour Vase", "quantity": 2, "price": 59 }
+  ],
+  "subtotal": 307,
+  "shipping": 12,
+  "tax": 26,
+  "total": 345
+}

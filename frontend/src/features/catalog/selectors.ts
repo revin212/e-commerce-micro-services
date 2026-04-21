@@ -1,0 +1,1 @@
+export const selectcatalogFeature = () => 'catalog';
