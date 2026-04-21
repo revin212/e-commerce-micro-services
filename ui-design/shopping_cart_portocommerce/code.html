@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart - PortoCommerce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#4d44e3",
+                        "on-tertiary-container": "#ffd2be",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed": "#140f54",
+                        "primary": "#3525cd",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-low": "#f3f4f5",
+                        "outline": "#777587",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container": "#edeeef",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-primary": "#c3c0ff",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#b6b4ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "surface-variant": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "secondary": "#58579b",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#e2dfff",
+                        "on-secondary-container": "#454386",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "tertiary": "#7e3000",
+                        "background": "#f8f9fa",
+                        "tertiary-container": "#a44100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        .gradient-text { background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container')); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .ambient-shadow { box-shadow: 0 20px 40px rgba(25, 28, 29, 0.06); }
+        .glass-panel { background-color: rgba(248, 249, 250, 0.8); backdrop-filter: blur(24px); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl bg-slate-100 dark:bg-slate-800 shadow-sm shadow-slate-200/50 dark:shadow-none">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-indigo-600 dark:text-indigo-400">
+                PortoCommerce
+            </div>
+<div class="flex items-center gap-6">
+<!-- Search on right implied, but omitted detailed search bar for brevity to focus on cart -->
+<button aria-label="shopping_cart" class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 pb-1 flex flex-col hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</button>
+<button aria-label="account_circle" class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors flex flex-col hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-24 px-8 max-w-7xl mx-auto w-full">
+<header class="mb-12">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-2">Your Atelier Selection</h1>
+<p class="text-on-surface-variant text-lg">Curated items ready for your collection.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-24">
+<!-- Cart Items List -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Item 1 -->
+<div class="flex flex-col sm:flex-row gap-6 bg-surface-container-lowest p-6 rounded-xl ambient-shadow">
+<div class="w-full sm:w-48 h-48 bg-surface-container-highest rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Minimalist ceramic vase" class="w-full h-full object-cover" data-alt="minimalist white ceramic vase with dried pampas grass against a soft neutral background, high end editorial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDijQ9IKclC7W-8_K9cjV1VE2Zqcsq-mzNGD5tXrbpcIdnruR_x89goiRQRszzvUyVQQbQ30p5ZbCyrP-emylo75THeOHPceyOW5ne8ifxT8sw5BTBUZD6S-gGj9F06024zuOjI7gxGnKlcG5r23rUWG9lOh9HQCitNsZWNau584y2iZq_acNPB9fw1_y-8Ny_NUjwPfRyUmgHSjUuaz10Pyb2VD9Stb9MpheiKnx_ZVpg52C6MJ7kGck9fzMpgBCYsQhSWUWk4qiJf"/>
+</div>
+<div class="flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">The Alabaster Vessel</h3>
+<span class="text-lg font-semibold text-on-surface">$145.00</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Color: Bone White | Size: Medium</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button aria-label="Decrease quantity" class="p-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="px-4 font-medium text-on-surface">1</span>
+<button aria-label="Increase quantity" class="p-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="flex gap-4">
+<button class="text-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-all">Save for Later</button>
+<button class="text-sm text-error hover:text-on-error-container underline-offset-4 hover:underline transition-all">Remove</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 (Low Stock) -->
+<div class="flex flex-col sm:flex-row gap-6 bg-surface-container-lowest p-6 rounded-xl ambient-shadow relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="w-full sm:w-48 h-48 bg-surface-container-highest rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Linen throw blanket" class="w-full h-full object-cover" data-alt="folded organic linen throw blanket in soft charcoal grey on a light oak wooden stool, soft window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdJWSymC86IaTeQN-StgqtP8T7Yp7eNVNZdP87HyrEFRvCayCV8K3ZnFBniMzkcaXfVTdZ-qE6zOKN68VEpE5xuKnHwhEUN_HQfipcCUqcCBKOMiEAVRs3Xv-D8QWNFqVn_pkY3TUMtfceKL30aDmMHEoByGWKl1-8l7mYVuKnUsoeQTT-24rBqjIpe-azm7_EQsBEfhqfZZX2Ix35lGV9RC0FmMdvFYlJy_FP67TE_uB_D5uu7qh-SPYmnVKk_aixGoFWiXpvfMji"/>
+</div>
+<div class="flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">Woven Linen Throw</h3>
+<span class="text-lg font-semibold text-on-surface">$89.00</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Color: Charcoal | Size: Standard</p>
+<div class="inline-flex items-center gap-1 text-xs font-medium text-error bg-error-container px-2 py-1 rounded-full mb-4">
+<span class="material-symbols-outlined text-xs">warning</span>
+                                Low stock - Only 2 left
+                            </div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button aria-label="Decrease quantity" class="p-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="px-4 font-medium text-on-surface">2</span>
+<button aria-label="Increase quantity" class="p-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="flex gap-4">
+<button class="text-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-all">Save for Later</button>
+<button class="text-sm text-error hover:text-on-error-container underline-offset-4 hover:underline transition-all">Remove</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Sidebar -->
+<div class="lg:col-span-4">
+<div class="bg-surface-container-low p-8 rounded-2xl sticky top-32">
+<h2 class="text-2xl font-bold text-on-surface mb-8">Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-medium text-on-surface">$323.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Shipping</span>
+<span class="font-medium text-primary">Complimentary</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Estimated Tax</span>
+<span class="font-medium text-on-surface">Calculated at checkout</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30 mb-8 w-full"></div>
+<div class="flex justify-between items-end mb-8">
+<span class="text-lg font-medium text-on-surface">Total</span>
+<span class="text-3xl font-extrabold text-on-surface">$323.00</span>
+</div>
+<div class="mb-8">
+<label class="block text-sm font-medium text-on-surface-variant mb-2" for="promo">Promo Code</label>
+<div class="flex gap-2">
+<input class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary/40 focus:outline-none transition-shadow placeholder-on-surface-variant/50" id="promo" placeholder="Enter code" type="text"/>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-lg font-medium hover:bg-surface-dim transition-colors">Apply</button>
+</div>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity flex justify-center items-center gap-2">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-xs text-center text-on-surface-variant mt-6">Secure checkout powered by PortoCommerce. Free returns within 30 days.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-slate-200 dark:bg-slate-800 bg-slate-100 dark:bg-slate-950 flat no-shadows">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-100">
+                PortoCommerce
+            </div>
+<nav class="flex flex-wrap gap-8">
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400" href="#">Newsletter</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400" href="#">Sustainability</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400" href="#">Privacy</a>
+</nav>
+</div>
+<div class="px-8 pb-8 max-w-7xl mx-auto text-sm text-slate-500 dark:text-slate-400">
+            © 2024 PortoCommerce. The Digital Atelier.
+        </div>
+</footer>
+</body></html>

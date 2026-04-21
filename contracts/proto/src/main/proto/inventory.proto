@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.portocommerce.contracts.inventory";
+option java_outer_classname = "InventoryProto";
+
+package inventory;
+
+service InventoryService {
+  rpc CheckAvailability(CheckAvailabilityRequest) returns (CheckAvailabilityResponse);
+  rpc ReserveStock(ReserveStockRequest) returns (ReserveStockResponse);
+  rpc ReleaseReservation(ReleaseReservationRequest) returns (ReleaseReservationResponse);
+}
+
+message ReserveLine {
+  string productId = 1;
+  int32 quantity = 2;
+}
+
+message CheckAvailabilityRequest {
+  string productId = 1;
+  int32 quantity = 2;
+}
+
+message CheckAvailabilityResponse {
+  bool available = 1;
+  int32 remaining = 2;
+}
+
+message ReserveStockRequest {
+  string orderId = 1;
+  repeated ReserveLine lines = 2;
+}
+
+message ReserveStockResponse {
+  string reservationId = 1;
+  string status = 2;
+}
+
+message ReleaseReservationRequest {
+  string reservationId = 1;
+}
+
+message ReleaseReservationResponse {
+  string status = 1;
+}

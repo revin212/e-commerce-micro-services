@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Experience - PortoCommerce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb695",
+                        "on-tertiary-fixed": "#351000",
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-container": "#4f46e5",
+                        "on-primary-container": "#dad7ff",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#0f0069",
+                        "background": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#58579b",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-secondary-container": "#454386",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container": "#edeeef",
+                        "on-surface": "#191c1d",
+                        "surface-container-low": "#f3f4f5",
+                        "primary-fixed": "#e2dfff",
+                        "outline": "#777587",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#b6b4ff",
+                        "outline-variant": "#c7c4d8",
+                        "tertiary-container": "#a44100",
+                        "primary": "#3525cd",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "secondary-fixed": "#e2dfff",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface-variant": "#464555",
+                        "on-background": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-container": "#ffd2be",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary": "#7e3000",
+                        "on-secondary-fixed": "#140f54",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#4d44e3",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen font-body relative">
+<!-- TopNavBar (Semantic Shell) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none bg-slate-100 dark:bg-slate-800">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-indigo-600 dark:text-indigo-400 font-headline">PortoCommerce</div>
+<nav class="hidden md:flex space-x-8 font-['Inter'] antialiased tracking-tight text-slate-900 dark:text-slate-100">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">Collections</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">Sustainability</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">Atelier</a>
+</nav>
+<div class="flex items-center space-x-6 text-indigo-600 dark:text-indigo-400">
+<button aria-label="search" class="hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="shopping_cart" class="hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button aria-label="account_circle" class="hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (simulated background) -->
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<div class="h-96 rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<p>Main Page Content (Behind the Search Overlay)</p>
+</div>
+</main>
+<!-- Full-Width Search Overlay -->
+<div class="fixed inset-0 z-[60] bg-surface/95 backdrop-blur-3xl flex flex-col items-center pt-8 px-4 sm:px-8">
+<!-- Search Input Header -->
+<div class="w-full max-w-5xl relative flex items-center mb-12">
+<span class="material-symbols-outlined absolute left-6 text-on-surface-variant text-3xl">search</span>
+<input class="w-full bg-surface-container-low text-on-surface text-2xl font-headline tracking-tight py-6 pl-20 pr-16 rounded-xl border-none focus:ring-2 focus:ring-primary/40 focus:outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="Search the Atelier..." type="text" value="Linen"/>
+<button class="absolute right-6 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<!-- Scrollable Results Area -->
+<div class="w-full max-w-5xl overflow-y-auto pb-24 flex flex-col gap-16">
+<!-- Section: Recent & Suggestions -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Recent Searches -->
+<div>
+<h3 class="text-sm font-semibold tracking-wide text-on-surface-variant mb-6 uppercase">Recent Searches</h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-on-surface hover:bg-surface-container-low p-3 -ml-3 rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+<span class="font-medium">Organic Cotton Tees</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface hover:bg-surface-container-low p-3 -ml-3 rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+<span class="font-medium">Cashmere Sweaters</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface hover:bg-surface-container-low p-3 -ml-3 rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+<span class="font-medium">Minimalist Watches</span>
+</li>
+</ul>
+</div>
+<!-- Popular Collections -->
+<div>
+<h3 class="text-sm font-semibold tracking-wide text-on-surface-variant mb-6 uppercase">Popular Collections</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-5 py-2.5 bg-surface-container-lowest border border-outline-variant/30 rounded-full text-on-surface font-medium hover:border-primary/50 cursor-pointer transition-all">The Linen Edit</span>
+<span class="px-5 py-2.5 bg-surface-container-lowest border border-outline-variant/30 rounded-full text-on-surface font-medium hover:border-primary/50 cursor-pointer transition-all">Summer Essentials</span>
+<span class="px-5 py-2.5 bg-surface-container-lowest border border-outline-variant/30 rounded-full text-on-surface font-medium hover:border-primary/50 cursor-pointer transition-all">Sustainable Denim</span>
+<span class="px-5 py-2.5 bg-surface-container-lowest border border-outline-variant/30 rounded-full text-on-surface font-medium hover:border-primary/50 cursor-pointer transition-all">Loungewear</span>
+</div>
+</div>
+</div>
+<!-- Section: Product Suggestions (Bento-style layout) -->
+<div>
+<h3 class="text-sm font-semibold tracking-wide text-on-surface-variant mb-6 uppercase">Product Suggestions for "Linen"</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-variant rounded-xl overflow-hidden mb-4 relative">
+<img alt="Linen Shirt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="crisp white linen shirt hanging on a wooden hanger against a soft grey background, minimal lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmTStkjmmdB-eRx83IYBK3y7vDtVz1Sc0zemmROFamF8iVyjvH0XH_TPzY5ewtBRdOfSz9RYcCOcVOA03NSgRx4hsO854kaEtQ6Jjq9fUEMsVPBM7mL9T4NHwHWjiVW5VItkqoEOTyTJsJWvx_EsCw21WuWVtQ71h0ZRwSJi5j2MTTCrn_yDpssSHI_mn2xlGulIUlWFnNItHBFnLFu7U09VN_wgNm5CFmFRcCM-eno0k70uV1yNWLfNntSGb3BGor3QXz-Ixg66ob"/>
+<div class="absolute inset-0 bg-on-surface/0 group-hover:bg-on-surface/5 transition-colors duration-300"></div>
+</div>
+<h4 class="font-medium text-on-surface mb-1">Classic Linen Button-Down</h4>
+<p class="text-on-surface-variant text-sm">$125.00</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-variant rounded-xl overflow-hidden mb-4 relative">
+<img alt="Linen Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="beige linen trousers neatly folded on a clean white surface with soft natural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi8d7iIrNVow51zndjvAFeHdUs51iCpKucWDgBnICCNhUko7SZ_6dePumeZY0IZB84jmVfNUbL_akK4I8ANdc_Vuk71h6spiUw2y6h5TYX5_EDaucuk9-sMXCdHrPKlZ7ZSrX0toBjd7tXADac8swAiCnGzVgyhLhSAs-fq0M6k5PijrMFX_KQiNRDiY6OSm9Pwou_9AToebYdt05942-hvGhltf_TmdnalydvJI_uIIcIpsEGYJrPb1YXfq00kKuYiZVPtAAAqtKW"/>
+<div class="absolute inset-0 bg-on-surface/0 group-hover:bg-on-surface/5 transition-colors duration-300"></div>
+</div>
+<h4 class="font-medium text-on-surface mb-1">Relaxed Linen Trousers</h4>
+<p class="text-on-surface-variant text-sm">$145.00</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-variant rounded-xl overflow-hidden mb-4 relative">
+<img alt="Linen Blazer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="light blue oversized linen blazer draped casually on a minimalist chair in a bright room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPSRAAa3zfJLsE17-5gR0pn5bw95RgPFCMVK3hA9Dh_0r_-jfnnxooxR5fgngOPOAqV_Tyd6BLDh1r7HXZnuxSbsTnePTJT36_dewLMKgV8BBs8yZpsUoETg4T-4AFPL6_r9BShr6WdGUIF9WdJrwUaPi7QvNLraZTKIk3W1b9kSXFyHshh7RfWvc-OhDHfYkp3dZ9SKS9EvMa3VZjvWiVGZ5eXnJ5fQGCFgYoygKb207SpEm8-7cvCHyC-1RLzBpBvC6T3KgXt-tS"/>
+<div class="absolute inset-0 bg-on-surface/0 group-hover:bg-on-surface/5 transition-colors duration-300"></div>
+</div>
+<h4 class="font-medium text-on-surface mb-1">Oversized Linen Blazer</h4>
+<p class="text-on-surface-variant text-sm">$210.00</p>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-variant rounded-xl overflow-hidden mb-4 relative">
+<img alt="Linen Tote" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="simple olive green linen tote bag hanging from a brass hook on a white wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGWdULyRaYZ4Y6bYNU0AGXDODrOJDiJRpqTPe-p-_0NJY0aS4Mrn_dilkGjqBoYS4zgBivn0sE8a1GQC7Gp48LNaoPJvO6gy3YsWHlGWx910TNOOOr5ZqtfTB3gSK06HZZDZx0JLP6655Q3XWt0jntIVcSe1iNXJGAOBjL0VoBCB5q1YSGKNNC9HHTaj8m4xh8f_zRDohZoqkmPNGkXeZjIp2AUoadd9RytNoP9HjxpaqO7Ue9mf7iMDCXXzaftbTCRNzmqlaL4ZQk"/>
+<div class="absolute inset-0 bg-on-surface/0 group-hover:bg-on-surface/5 transition-colors duration-300"></div>
+</div>
+<h4 class="font-medium text-on-surface mb-1">Everyday Linen Tote</h4>
+<p class="text-on-surface-variant text-sm">$85.00</p>
+</div>
+</div>
+</div>
+<!-- View All CTA -->
+<div class="flex justify-center mt-4">
+<button class="flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-medium hover:shadow-[0_10px_20px_rgba(53,37,205,0.2)] transition-all duration-300">
+<span>View all 42 results for "Linen"</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- No Results State (Hidden by default, included for design completeness) -->
+<!--
+    <div class="fixed inset-0 z-[60] bg-surface/95 backdrop-blur-3xl flex flex-col items-center pt-8 px-4 sm:px-8 hidden">
+        <div class="w-full max-w-5xl relative flex items-center mb-12">
+            <span class="material-symbols-outlined absolute left-6 text-on-surface-variant text-3xl">search</span>
+            <input type="text" class="w-full bg-surface-container-low text-on-surface text-2xl font-headline tracking-tight py-6 pl-20 pr-16 rounded-xl border-none focus:ring-2 focus:ring-error/40 focus:outline-none transition-all" value="Xyzxyz">
+            <button class="absolute right-6 text-on-surface-variant hover:text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center flex-1 w-full max-w-5xl pb-32 text-center">
+            <div class="w-24 h-24 bg-error-container text-on-error-container rounded-full flex items-center justify-center mb-8">
+                <span class="material-symbols-outlined text-4xl">search_off</span>
+            </div>
+            <h2 class="text-3xl font-headline font-bold text-on-surface mb-4">No results found for "Xyzxyz"</h2>
+            <p class="text-on-surface-variant text-lg mb-8 max-w-md">We couldn't find anything matching your search. Please check the spelling or try a different term.</p>
+            
+            <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15 w-full max-w-lg">
+                <h3 class="text-on-surface font-medium mb-4">Did you mean?</h3>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <span class="px-4 py-2 bg-surface-container-lowest rounded-lg text-primary cursor-pointer hover:underline underline-offset-4 decoration-primary/30">Accessories</span>
+                    <span class="px-4 py-2 bg-surface-container-lowest rounded-lg text-primary cursor-pointer hover:underline underline-offset-4 decoration-primary/30">New Arrivals</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+</body></html>

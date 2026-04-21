@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PortoCommerce - The Digital Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f0f1f2",
+                      "surface-dim": "#d9dadb",
+                      "on-surface": "#191c1d",
+                      "surface-container-high": "#e7e8e9",
+                      "surface-tint": "#4d44e3",
+                      "on-tertiary-container": "#ffd2be",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdbcc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#464555",
+                      "on-secondary-fixed": "#140f54",
+                      "primary": "#3525cd",
+                      "surface-bright": "#f8f9fa",
+                      "on-tertiary-fixed": "#351000",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "surface-container-low": "#f3f4f5",
+                      "outline": "#777587",
+                      "surface": "#f8f9fa",
+                      "on-tertiary-fixed-variant": "#7b2f00",
+                      "surface-container": "#edeeef",
+                      "outline-variant": "#c7c4d8",
+                      "on-primary-fixed": "#0f0069",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#e2dfff",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "inverse-primary": "#c3c0ff",
+                      "on-primary-container": "#dad7ff",
+                      "error": "#ba1a1a",
+                      "secondary-container": "#b6b4ff",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#2e3132",
+                      "surface-variant": "#e1e3e4",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb695",
+                      "secondary": "#58579b",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "primary-container": "#4f46e5",
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed": "#e2dfff",
+                      "on-secondary-container": "#454386",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#191c1d",
+                      "on-secondary-fixed-variant": "#413f82",
+                      "tertiary": "#7e3000",
+                      "background": "#f8f9fa",
+                      "tertiary-container": "#a44100"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Inter"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label": [
+                              "Inter"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          body {
+              font-family: 'Inter', sans-serif;
+          }
+      </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl bg-slate-100 dark:bg-slate-800 shadow-sm shadow-slate-200/50 dark:shadow-none">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-indigo-600 dark:text-indigo-400">
+                PortoCommerce
+            </div>
+<!-- Search Bar with Autocomplete Suggestions (Simulated) -->
+<div class="relative w-1/3 hidden md:block">
+<div class="relative flex items-center w-full h-12 rounded-lg bg-surface-container-low focus-within:ring-2 focus-within:ring-primary/40 focus-within:ring-opacity-50 overflow-hidden">
+<div class="grid place-items-center h-full w-12 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="peer h-full w-full outline-none text-sm text-on-surface bg-transparent pr-2 font-body" id="search" placeholder="Search curated goods..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button aria-label="shopping_cart" class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined hover:opacity-80 transition-all duration-300">shopping_cart</span>
+</button>
+<button aria-label="account_circle" class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined hover:opacity-80 transition-all duration-300">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24 pb-16">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 py-xl mb-2xl">
+<div class="relative rounded-xl overflow-hidden bg-surface-container-low flex items-center justify-center min-h-[716px]">
+<img alt="Hero Image" class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="high fashion editorial style flat lay of premium lifestyle objects, minimalist tech, designer sunglasses, minimal composition, soft diffuse lighting, studio setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPbp7Vp30pl53h7uDPv1ikSiaMSAiVHFu0UWajwFCFVKGOyvlGD-yQlmr9MpnEB-WNP8ym-ZrjFjqYNGsZVoa-1zzxY4ZAW6DceTNt_D3yyos7f416Af0IJ-UCcvBW7gwxR-9CcpZXgG7dOXDvfwuO-EAePPXAPFuuHu3mDmi6UWbKTJyBM6dHdDifKkLz2ArZgOR-KvXLHulilz6pAVyk8jXVcK8lZyJqM649GtLclUOduYrfV3gdUPQ18CBLrtL0f_4Q-AhWz0If"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="relative z-10 text-center max-w-3xl px-6">
+<h1 class="text-[3.5rem] md:text-[5rem] font-headline font-extrabold tracking-[-0.02em] leading-tight text-on-surface mb-6">
+                        Elevate Your Lifestyle
+                    </h1>
+<p class="text-lg md:text-xl font-body text-on-surface-variant mb-10 leading-relaxed">
+                        Curated essentials for the modern aesthetic. Discover objects that transcend the ordinary.
+                    </p>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-DEFAULT font-medium text-lg hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-[0.98]">
+                        Explore the Collection
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Categories (Bento Grid) -->
+<section class="max-w-7xl mx-auto px-8 mb-2xl">
+<div class="flex items-baseline justify-between mb-10">
+<h2 class="text-2xl font-headline font-semibold text-on-surface tracking-tight">Curated Categories</h2>
+<a class="text-sm font-medium text-primary hover:underline underline-offset-4" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+<!-- Category 1 -->
+<a class="group relative rounded-lg overflow-hidden bg-surface-container-highest md:col-span-2 md:row-span-2" href="#">
+<img alt="Home" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="modern minimalist living room interior with designer furniture, neutral tones, soft natural light streaming through large windows, architectural space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiN8Rxdcltr76OQ2ZW4Aw5bKJ1bqRRQLoTNzRj6QzitQFqE9QVaWU2KgdgjSvTNzC4CjXlUnyjIalt2_0YjC_85CPWRYHGtixMqe9vU8wgBnQCXFY8YVzYasn-MVcmQ1VzRa1KJ8cZ4rntT5k0VpPuwpvXtKZlWx4uqd2HpCmvPA_e4-gyfoUtMdM6D64ZRAG2F25wzKVBJY7wi04XA4zpQ6LQCCJJqwYDzP-avKdP7uRAKUIOisf7mtLUppcuLbjuPRp83NDfzCtU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="text-3xl font-headline font-bold text-surface-bright mb-2">Home Haven</h3>
+<p class="text-surface-dim text-sm">Architectural objects &amp; furnishings.</p>
+</div>
+</a>
+<!-- Category 2 -->
+<a class="group relative rounded-lg overflow-hidden bg-surface-container-highest" href="#">
+<img alt="Tech" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="sleek premium laptop on dark slate desk, minimal tech setup, moody lighting, professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRlc52iB4yRKEopUYm-RsRm6GXnWHTD9HY7bcTo849HhtMdg44-P1sljJzEN7E-nW7NVzv6B1Ci30U4WMwN5AIW5WAw16hbfCIRNy2LMjy3Y4qgHiZKwwFT1LIfSrjGAbwb5upH1ptJCkImhESbIfJJ9k1lYotBckr3JwtASzkvyRnP0HsoyL5ETkeJSejvQPJjukwYuW5mbGr5l-WiD25KMzC77xiTy9dtH5mRC_ag3iUiH4VzjMYEb0BBvdjegG1P0oSuzKl_K0L"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-xl font-headline font-bold text-surface-bright mb-1">Essential Tech</h3>
+<p class="text-surface-dim text-xs">Tools for creation.</p>
+</div>
+</a>
+<!-- Category 3 -->
+<a class="group relative rounded-lg overflow-hidden bg-surface-container-highest" href="#">
+<img alt="Style" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="high fashion minimalist clothing rack with premium neutral garments, soft boutique lighting, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiYajuzAUMMnr6SbKBwLXYir9QcClZ5t5UIqdntARHlt7BxZvtJ-DpNpcTSVYz1sOzwq6qjzF3IN4mEprOrN5STryMc6_NsdLv2lQGzHxEZhCKcejYaUo3XBfdb3n_eHEB46FkvlozgesJTCJoFnMrpCwftwgOeZBnnLSjsmxq2HXh3u7rkeJM34mXjpHa1anF-vKeNtUa82Hi3UQeEX2iSM99iz5qPUqS4adaM_4kbCPzhY03cxhMshThAbugT9b91zC-jm787u3Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-xl font-headline font-bold text-surface-bright mb-1">Modern Style</h3>
+<p class="text-surface-dim text-xs">Elevated wardrobe staples.</p>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-slate-100 dark:bg-slate-950 w-full mt-24 bg-slate-200 dark:bg-slate-800 flat no-shadows">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-100">
+                    PortoCommerce
+                </div>
+<p class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    © 2024 PortoCommerce. The Digital Atelier.
+                </p>
+</div>
+<div class="flex flex-wrap gap-8">
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Newsletter</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Sustainability</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

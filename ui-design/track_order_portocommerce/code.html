@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PortoCommerce - Order Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#4d44e3",
+                        "on-tertiary-container": "#ffd2be",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed": "#140f54",
+                        "primary": "#3525cd",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-low": "#f3f4f5",
+                        "outline": "#777587",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container": "#edeeef",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-primary": "#c3c0ff",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#b6b4ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "surface-variant": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "secondary": "#58579b",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#e2dfff",
+                        "on-secondary-container": "#454386",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "tertiary": "#7e3000",
+                        "background": "#f8f9fa",
+                        "tertiary-container": "#a44100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none bg-slate-100 dark:bg-slate-800">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto font-['Inter'] antialiased tracking-tight text-slate-900 dark:text-slate-100">
+<div class="text-2xl font-bold tracking-tighter text-indigo-600 dark:text-indigo-400">PortoCommerce</div>
+<div class="hidden md:flex items-center gap-6">
+<!-- TopNav Links (Contextual suppression applied, focusing on canvas) -->
+</div>
+<div class="flex items-center gap-4 text-indigo-600 dark:text-indigo-400">
+<button aria-label="Search" class="hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Shopping Cart" class="hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button aria-label="Account" class="hover:opacity-80 transition-all duration-300 active:scale-95 transform transition-transform text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 pb-1">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-xl">
+<!-- Side Navigation (User Account) -->
+<aside class="w-full lg:w-64 flex-shrink-0 mb-8 lg:mb-0">
+<h2 class="text-headline-lg font-headline font-bold text-on-surface mb-8 tracking-tight">My Account</h2>
+<nav class="flex flex-col gap-2">
+<a class="px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-outline">person</span>
+<span class="font-medium">Profile</span>
+</a>
+<a class="px-4 py-3 rounded-DEFAULT bg-surface-bright text-primary font-medium flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">package_2</span>
+<span>Orders</span>
+</a>
+<a class="px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-outline">location_on</span>
+<span class="font-medium">Addresses</span>
+</a>
+<a class="px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-outline">payment</span>
+<span class="font-medium">Payments</span>
+</a>
+<a class="px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-outline">notifications</span>
+<span class="font-medium">Notifications</span>
+</a>
+<a class="px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-outline">favorite</span>
+<span class="font-medium">Wishlist</span>
+</a>
+</nav>
+</aside>
+<!-- Order Tracking Content -->
+<section class="flex-grow flex flex-col gap-xl">
+<!-- Order Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-surface-variant pb-6">
+<div>
+<p class="text-body-md text-on-surface-variant mb-1 font-medium">Order #PC-12345</p>
+<h1 class="text-display-sm font-headline font-bold text-on-surface tracking-tight">Arriving Thu, Oct 24</h1>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 rounded-DEFAULT bg-surface-container-highest text-on-surface font-medium hover:opacity-80 transition-opacity">Support</button>
+<button class="px-6 py-2 rounded-DEFAULT bg-gradient-to-br from-primary to-primary-container text-on-primary font-medium hover:opacity-90 transition-opacity shadow-[0_4px_14px_rgba(53,37,205,0.25)]">Reorder</button>
+</div>
+</div>
+<!-- Timeline Visualization -->
+<div class="bg-surface-container-lowest rounded-xl p-8 relative isolate overflow-hidden">
+<h3 class="text-lg font-bold text-on-surface mb-8">Delivery Status</h3>
+<div class="relative flex justify-between items-center w-full max-w-3xl mx-auto z-10">
+<!-- Track Line (Background) -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-container-high -z-10"></div>
+<!-- Track Line (Progress) -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-2/3 h-1 bg-primary -z-10"></div>
+<!-- Step 1: Placed -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="text-sm font-medium text-on-surface">Placed</span>
+<span class="text-xs text-on-surface-variant">Oct 20</span>
+</div>
+<!-- Step 2: Payment Authorized -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="text-sm font-medium text-on-surface">Payment</span>
+<span class="text-xs text-on-surface-variant">Oct 20</span>
+</div>
+<!-- Step 3: Fulfillment (Active) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center ring-4 ring-surface-container-lowest shadow-[0_0_15px_rgba(79,70,229,0.4)]">
+<span class="material-symbols-outlined text-sm animate-pulse">sync</span>
+</div>
+<span class="text-sm font-bold text-primary">Fulfillment</span>
+<span class="text-xs text-primary">In Progress</span>
+</div>
+<!-- Step 4: Shipped (Pending) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+</div>
+<span class="text-sm font-medium text-outline">Shipped</span>
+<span class="text-xs text-outline">Pending</span>
+</div>
+</div>
+</div>
+<!-- Order Details Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Items Card -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-6">
+<h3 class="text-lg font-bold text-on-surface mb-6">Order Items</h3>
+<div class="flex flex-col gap-6">
+<!-- Item 1 -->
+<div class="flex gap-4 items-center">
+<div class="w-24 h-24 bg-surface-container-highest rounded-lg flex-shrink-0 overflow-hidden">
+<img alt="Ceramic Pour Over Coffee Maker" class="w-full h-full object-cover mix-blend-multiply opacity-90" data-alt="minimalist white ceramic pour over coffee maker on clean light grey background with soft diffused lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBNNKYZ7tHmJjHXgOBykL3MKpGx-nR7FVgRBmEpyAHr-e3V33fQkJIPsfeQt2pnsKgEwhSzeerqxbMEZGroY4w35x5qoZ_mra3Yecu39wfl_FrwNbgbFK4qj-q6p_FTTwO3y4OL9-a6Z34ewpfiOhZkZv0CwwksbeM4ekYw2wr1WNQD1S70DC_lrUGcdm_iBKunzu_1aHx-x_douZPD1YCwPdf0q_ZZ5Ny-2m5izD5YiPPOT_hcFvp0u4PEJPzmbAS8_GO--C4ORZW"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-base font-semibold text-on-surface">Atelier Ceramic Pour Over</h4>
+<p class="text-sm text-on-surface-variant mt-1">Color: Bone White</p>
+<p class="text-sm text-on-surface-variant">Qty: 1</p>
+</div>
+<div class="text-right">
+<span class="font-semibold text-on-surface">$85.00</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 items-center">
+<div class="w-24 h-24 bg-surface-container-highest rounded-lg flex-shrink-0 overflow-hidden">
+<img alt="Artisan Coffee Beans" class="w-full h-full object-cover mix-blend-multiply opacity-90" data-alt="matte black premium coffee bean bag packaging on clean light grey background with minimal lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcjZLDMGy7R5ASSjkBwi_FR2tap-eqNDRabQgxDCZ1vC63mrGJeTxTyWt6FMZl6PF_TBaosoMTf-n7Xa4F8WJpR6Z1XjWJlrONIAO_wIKO-tu97kQfUXSgvHaHhltVwCPTXlveM-59tUC_L5FpDz28RrCyoU7GlWZ2I3tF6O8EK0FLjXoHQbJs4hX2n39TR3YSPugur2tM929JtHinEvfdps83E1E5qU0x-Pp-cNOTOeRhjTn7hIcRxUMjDqt8y846thHkI8WPy_Pk"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-base font-semibold text-on-surface">Reserve Espresso Blend</h4>
+<p class="text-sm text-on-surface-variant mt-1">Size: 250g</p>
+<p class="text-sm text-on-surface-variant">Qty: 2</p>
+</div>
+<div class="text-right">
+<span class="font-semibold text-on-surface">$48.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary & Address Stack -->
+<div class="flex flex-col gap-6 lg:col-span-1">
+<!-- Shipping Address -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">home_pin</span>
+<h3 class="text-base font-bold text-on-surface">Shipping Address</h3>
+</div>
+<address class="not-italic text-sm text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface font-semibold block mb-1">Jane Doe</strong>
+                            123 Atelier Avenue, Suite 4B<br/>
+                            Design District<br/>
+                            New York, NY 10001<br/>
+                            United States
+                        </address>
+</div>
+<!-- Order Total -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_20px_40px_rgba(25,28,29,0.06)]">
+<h3 class="text-base font-bold text-on-surface mb-4">Order Summary</h3>
+<div class="flex flex-col gap-3 text-sm text-on-surface-variant border-b border-surface-container-high pb-4 mb-4">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span>$133.00</span>
+</div>
+<div class="flex justify-between">
+<span>Shipping (Express)</span>
+<span>$15.00</span>
+</div>
+<div class="flex justify-between">
+<span>Tax</span>
+<span>$11.84</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="font-bold text-base">Total</span>
+<span class="font-bold text-lg">$159.84</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-slate-100 dark:bg-slate-950 bg-slate-200 dark:bg-slate-800 flat no-shadows">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-100">PortoCommerce</div>
+<nav class="flex flex-wrap gap-6 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Newsletter</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Sustainability</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Privacy</a>
+</nav>
+<div class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                © 2024 PortoCommerce. The Digital Atelier.
+            </div>
+</div>
+</footer>
+</body></html>

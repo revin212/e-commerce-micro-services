@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PortoCommerce - Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#4d44e3",
+                        "on-tertiary-container": "#ffd2be",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed": "#140f54",
+                        "primary": "#3525cd",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-low": "#f3f4f5",
+                        "outline": "#777587",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container": "#edeeef",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-primary": "#c3c0ff",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#b6b4ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "surface-variant": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "secondary": "#58579b",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#e2dfff",
+                        "on-secondary-container": "#454386",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "tertiary": "#7e3000",
+                        "background": "#f8f9fa",
+                        "tertiary-container": "#a44100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #191c1d; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none bg-slate-100 dark:bg-slate-800">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-indigo-600 dark:text-indigo-400">PortoCommerce</div>
+<nav class="hidden md:flex gap-8 font-['Inter'] antialiased tracking-tight text-slate-900 dark:text-slate-100">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">Home</a>
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 pb-1 hover:opacity-80 transition-all duration-300" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">Collections</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors hover:opacity-80 transition-all duration-300" href="#">About</a>
+</nav>
+<div class="flex items-center gap-4 text-indigo-600 dark:text-indigo-400">
+<button class="active:scale-95 transform transition-transform hover:opacity-80 transition-all duration-300 p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="active:scale-95 transform transition-transform hover:opacity-80 transition-all duration-300 p-2 rounded-full hover:bg-surface-container-highest relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-primary text-on-primary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">3</span>
+</button>
+<button class="active:scale-95 transform transition-transform hover:opacity-80 transition-all duration-300 p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 pb-24 px-8 max-w-[1440px] mx-auto flex flex-col md:flex-row gap-xl">
+<!-- Filter Sidebar -->
+<aside class="w-full md:w-64 flex-shrink-0 flex flex-col gap-lg sticky top-32 h-fit">
+<h2 class="text-xl font-bold tracking-tight text-on-surface mb-md">Filters</h2>
+<div class="bg-surface-container-low p-lg rounded-xl">
+<h3 class="font-semibold text-sm mb-md">Price Range</h3>
+<div class="flex flex-col gap-sm">
+<input class="w-full accent-primary" max="1000" min="0" type="range" value="500"/>
+<div class="flex justify-between text-xs text-on-surface-variant font-medium">
+<span>$0</span>
+<span>$1000+</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl">
+<h3 class="font-semibold text-sm mb-md">Categories</h3>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center gap-sm text-sm cursor-pointer hover:text-primary transition-colors">
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Apparel</span>
+</label>
+<label class="flex items-center gap-sm text-sm cursor-pointer hover:text-primary transition-colors">
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Accessories</span>
+</label>
+<label class="flex items-center gap-sm text-sm cursor-pointer hover:text-primary transition-colors">
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Footwear</span>
+</label>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl">
+<h3 class="font-semibold text-sm mb-md">Availability</h3>
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-sm">In Stock Only</span>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-primary bg-primary" id="toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-primary-container cursor-pointer" for="toggle"></label>
+</div>
+</label>
+</div>
+</aside>
+<!-- Product Area -->
+<section class="flex-1 flex flex-col gap-lg">
+<!-- Toolbar -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div class="flex flex-wrap gap-sm">
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-highest text-sm rounded-full">
+                        In-stock
+                        <button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-highest text-sm rounded-full">
+                        $100 - $500
+                        <button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</span>
+<button class="text-sm text-primary hover:underline underline-offset-2 font-medium">Clear All</button>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-sm text-on-surface-variant font-medium">Sort by:</span>
+<select class="bg-surface-container-low border-none text-sm rounded-lg py-2 pl-3 pr-8 focus:ring-2 focus:ring-primary/40 cursor-pointer text-on-surface font-medium">
+<option>Featured</option>
+<option>Newest</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-xl">
+<!-- Product 1 -->
+<article class="group flex flex-col gap-md">
+<div class="relative aspect-[3/4] bg-surface-container-highest rounded-xl overflow-hidden mb-2">
+<img alt="Minimalist Leather Jacket" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist black leather jacket hanging against a soft grey studio background, high fashion lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdtEtvBe-FPFw5QCt5HcGn6xIG1a-XUgBE6S5LsjOPvsInX0vEsxH324g53RQVUeyAk4qykAAxr3gXuezkCeJ65slxPPfL6I3IklagHJ8UiBRYxukChMZyonm2XKPbdC0DpseVjLNxoq-VdD4lDy6uXTHORenreLKgBHWIyl5ttmevGLkToNzZQSH67us0WzKfYVt-3EfYPrmBEpMKw7tE9TL7rFG8c8l0evKe2MJUopmGpWKs374f7Ymf3YzTEIAAUihrkoAHaQ9-"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md px-6 py-2 rounded-full text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-surface shadow-[0_10px_20px_rgba(25,28,29,0.06)]">Quick Add</button>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface tracking-tight">The Atelier Jacket</h3>
+<span class="font-medium text-lg">$450</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Premium Napa Leather</p>
+<div class="flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+<span class="text-xs text-on-surface-variant ml-1">(42)</span>
+</div>
+</div>
+</article>
+<!-- Product 2 -->
+<article class="group flex flex-col gap-md">
+<div class="relative aspect-[3/4] bg-surface-container-highest rounded-xl overflow-hidden mb-2">
+<img alt="Silk Blend Scarf" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="folded silk blend scarf in cream and indigo tones resting on a textured linen surface, soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMAi8w-uBCRy6K1DM_1GluJ0FfBHepOkMhK8zcBAUQ0DZVYXsZ_2rz_QFkQjqX6UUxLoLZhlXscJ_aYVxe3rbzZQ4tdfW7-WvYsP8M__ILv3Bqmq4KJod35Tfo4foXSv0VxbE7HHCSXbCTte7owQ62tb9-G-XaEgWZ8yjicDbWckxkXcWutg7nqM9rGky1aZE0R4iMXs7s-I2_2XT0IuuQSpBOYW_a2ZFzBorleKvr_9aIZy0RRssrxJfV9LMurBUARi3gEZMiqnIv"/>
+<span class="absolute top-4 left-4 bg-primary text-on-primary text-xs font-bold px-2 py-1 rounded">New</span>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md px-6 py-2 rounded-full text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-surface shadow-[0_10px_20px_rgba(25,28,29,0.06)]">Quick Add</button>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface tracking-tight">Silk Modal Scarf</h3>
+<span class="font-medium text-lg">$120</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Woven in Italy</p>
+<div class="flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="text-xs text-on-surface-variant ml-1">(18)</span>
+</div>
+</div>
+</article>
+<!-- Product 3 -->
+<article class="group flex flex-col gap-md">
+<div class="relative aspect-[3/4] bg-surface-container-highest rounded-xl overflow-hidden mb-2">
+<img alt="Structured Tote Bag" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="structured minimal tote bag in deep indigo leather on a clean white pedestal, sharp architectural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl_G5aE7q4IMGYDRnzsL0Ct_C3yZlNEy1gQvm84oVxcf-7B2p77oqbbtLFFb9D8w0wTzxxF4yX8Exo82-dI6ui0DY2mxuWQxUfw8cHywvzs3Qm8IRyMIKyjdzgDob62u3v75Ph_bshfawU4NP04E1LZ7M4JZWTBHJnJa8uqzW54RCISyUR8YDAvqNULXHHP7vxDg6mhdw_MYXSdkNEldcnRkjhkCF5M1w80MqlDCGdfX-uY0vpy-VQNvpC9T5fW1IK7i_u1ChBevuK"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md px-6 py-2 rounded-full text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-surface shadow-[0_10px_20px_rgba(25,28,29,0.06)]">Quick Add</button>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface tracking-tight">Structured Tote</h3>
+<span class="font-medium text-lg">$380</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Vegetable Tanned Leather</p>
+<div class="flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="text-xs text-on-surface-variant ml-1">(8)</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-2 mt-xl pt-lg">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-bright text-primary font-bold shadow-[0_10px_20px_rgba(25,28,29,0.06)]">1</button>
+<button class="w-10 h-10 rounded-full text-on-surface hover:bg-surface-container-low transition-colors">2</button>
+<button class="w-10 h-10 rounded-full text-on-surface hover:bg-surface-container-low transition-colors">3</button>
+<span class="text-on-surface-variant px-2">...</span>
+<button class="w-10 h-10 rounded-full text-on-surface hover:bg-surface-container-low transition-colors">12</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-slate-100 dark:bg-slate-950 bg-slate-200 dark:bg-slate-800 flat no-shadows">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-8 py-16 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+<div>
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-100 mb-4">PortoCommerce</div>
+<p>© 2024 PortoCommerce. The Digital Atelier.</p>
+</div>
+<nav class="flex flex-wrap gap-8">
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Newsletter</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Sustainability</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Privacy</a>
+</nav>
+</div>
+</footer>
+</body></html>

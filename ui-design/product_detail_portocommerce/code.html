@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PortoCommerce - Product Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#4d44e3",
+                        "on-tertiary-container": "#ffd2be",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed": "#140f54",
+                        "primary": "#3525cd",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-low": "#f3f4f5",
+                        "outline": "#777587",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container": "#edeeef",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-primary": "#c3c0ff",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#b6b4ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "surface-variant": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "secondary": "#58579b",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed": "#e2dfff",
+                        "on-secondary-container": "#454386",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "tertiary": "#7e3000",
+                        "background": "#f8f9fa",
+                        "tertiary-container": "#a44100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none bg-surface/80">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<a class="text-2xl font-bold tracking-tighter text-indigo-600 dark:text-indigo-400 text-primary" href="#">
+                PortoCommerce
+            </a>
+<div class="flex-1 max-w-md mx-8 hidden md:block">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-DEFAULT py-2 pl-10 pr-4 text-sm text-on-surface focus:ring-1 focus:ring-primary/40 transition-shadow" placeholder="Search products..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
+<!-- Breadcrumbs -->
+<nav class="mb-8 flex items-center text-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm mx-2">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Men's Wear</a>
+<span class="material-symbols-outlined text-sm mx-2">chevron_right</span>
+<span class="text-on-surface">The Minimalist Wool Coat</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-24">
+<!-- Gallery -->
+<div class="flex flex-col-reverse md:flex-row gap-4 h-full">
+<!-- Thumbnails -->
+<div class="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto md:w-24 shrink-0 no-scrollbar">
+<button class="w-20 h-24 md:w-24 md:h-32 bg-surface-container-highest rounded-DEFAULT flex-shrink-0 overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-surface">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="Close up detail of premium charcoal grey wool fabric texture with subtle diagonal weave pattern in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv5QDGTR2nBY4PDdhj14SBW27IINT4MZzlnum_KE54lEo_0kRHpbhx-bB1faXdmd_yCR4xf0vokLHD30RKPGq57JEGO0m8tFCchblOh15H_QbLPv5XT_Acxrq0G9zLBAA8aGQpKTvM39lvF8VhJNd7vb9HFXbbmtVgX_ja7lhMYd8uQ-tV1wPJ9c3XdwTEspEYYJR0bCeZpXK_QxsbnMxXGW-f5FNFWm-adeIAHXGzd3lFZ4MiLdfYcvi0gTsA9oVTn1UjRDygoGON"/>
+</button>
+<button class="w-20 h-24 md:w-24 md:h-32 bg-surface-container-highest rounded-DEFAULT flex-shrink-0 overflow-hidden opacity-60 hover:opacity-100 transition-opacity">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" data-alt="Back view of a male model wearing a long charcoal grey wool tailored coat standing against a light grey studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxPzENqX4wo-78aaBSGARc1MOPd9IfTMUwjJTF7ANYrNoZECOWHr-1U771FA4wBc1sNhaMQXn0aBGq5PGDBaus-vRj_Eu66TcjUIaxNPHnQVE1UMh8Bbyo7hjmybcjYFWKKdb_PAy6GCMq4OwJLAtjlqv3BCFSdyYO-WA4V2Y-t2AjCCecGRNNbLtxahL4JyZd_APw8R8tPtD-V_jBX2pfqRUEfpBHz8xE2YKzh2B0KR0vrUNjtN4W2VRWTjKc7Gy8u1YLY8QnUq64"/>
+</button>
+<button class="w-20 h-24 md:w-24 md:h-32 bg-surface-container-highest rounded-DEFAULT flex-shrink-0 overflow-hidden opacity-60 hover:opacity-100 transition-opacity">
+<img alt="Thumbnail 3" class="w-full h-full object-cover" data-alt="Close up of the cuff and buttons on a premium charcoal grey wool coat showing fine stitching detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuDwqg0GHBbnaJHzeFtF3ulRo1-2abao8TcDtB0VsJEjo_Mb4r3dkd81y38ZKp4NiyrkkJev9UetcuKh-SIoKLTwZ8TVmDLAqIurEAefNKa-RdySx3newiERG2ZHFGlEX15JUobiMO5x7qE1oJab3l5G_G97PZLfsyOyf_vOr4frQEVkQA5sdOEghkNxhX8TEskOTiL1q4mT9TLs0YnvRI8_WqC0x5khpfdiIkxyN8lxHG5qhPb8FLKq5qyPtDEYQzsZs_sC_grsyV"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="flex-grow bg-surface-container-highest rounded-lg overflow-hidden relative aspect-[3/4] md:aspect-auto">
+<img alt="Main Product Image" class="w-full h-full object-cover" data-alt="Front view of a male model wearing a premium tailored charcoal grey wool long coat over a black turtleneck, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYGIxSrYb06zlvYak_VjqlwuM-r2K0Ztr-GerIkby4-nLE2fkQUSM1-Sv8HB-GEeZ-CG9nKfXHLCzPUSO0EZAMtBcYu02Am3lFS2k5KGQBK_hTgVDWVk4axIMvlam_pC81AWghcgRBS4bkeDCplJGBgcLZC7rUme7MaxFY_Xr6E_uteonYQMybFbio1QauQ8QnUL9wLARX_z74UmEi9Tf6_KThdkp8GIdiZ16pmVknWBcO-y2oE_glAfSoLiYkh8QYRp0zJhpYNkOM"/>
+<button class="absolute bottom-4 right-4 bg-surface-container-lowest/80 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Product Info -->
+<div class="flex flex-col">
+<div class="mb-6">
+<h1 class="text-3xl md:text-4xl font-headline font-bold tracking-tight text-on-surface mb-2">The Minimalist Wool Coat</h1>
+<div class="flex items-center gap-4 mb-4">
+<div class="flex text-surface-tint">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+<span class="text-sm text-on-surface-variant">4.8 (124 reviews)</span>
+</div>
+<p class="text-2xl font-semibold text-on-surface">$495.00</p>
+</div>
+<p class="text-base text-on-surface-variant leading-relaxed mb-8">
+                    Crafted from ethically sourced Italian merino wool, this coat offers uncompromised warmth and a structured, architectural silhouette. Designed for the modern atelier.
+                </p>
+<!-- Variants -->
+<div class="space-y-6 mb-8">
+<!-- Color -->
+<div>
+<h3 class="text-sm font-semibold text-on-surface mb-3 uppercase tracking-wider">Color: <span class="text-on-surface-variant font-normal">Charcoal Grey</span></h3>
+<div class="flex gap-3">
+<button class="w-10 h-10 rounded-full bg-[#333333] ring-2 ring-offset-2 ring-offset-surface ring-primary"></button>
+<button class="w-10 h-10 rounded-full bg-[#1a1a1a] ring-1 ring-offset-2 ring-offset-surface ring-outline-variant hover:ring-outline transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-[#8c7b65] ring-1 ring-offset-2 ring-offset-surface ring-outline-variant hover:ring-outline transition-all"></button>
+</div>
+</div>
+<!-- Size -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-sm font-semibold text-on-surface uppercase tracking-wider">Size</h3>
+<a class="text-sm text-primary hover:underline underline-offset-4 decoration-primary/50" href="#">Size Guide</a>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<button class="py-3 bg-surface-container-low text-on-surface rounded-DEFAULT hover:bg-surface-container transition-colors">S</button>
+<button class="py-3 bg-surface-container-lowest border border-primary text-primary font-medium rounded-DEFAULT shadow-sm">M</button>
+<button class="py-3 bg-surface-container-low text-on-surface rounded-DEFAULT hover:bg-surface-container transition-colors">L</button>
+<button class="py-3 bg-surface-container-low text-on-surface rounded-DEFAULT hover:bg-surface-container transition-colors opacity-50 cursor-not-allowed">XL</button>
+</div>
+</div>
+</div>
+<!-- Alert -->
+<div class="flex items-center gap-2 text-error mb-6 bg-error-container/30 p-3 rounded-DEFAULT">
+<span class="material-symbols-outlined text-lg">error</span>
+<span class="text-sm font-medium">Only 3 left in size M - Order soon</span>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-4 mb-12">
+<div class="flex items-center bg-surface-container-low rounded-DEFAULT">
+<button class="px-4 py-3 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="w-8 text-center font-medium">1</span>
+<button class="px-4 py-3 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+<button class="flex-1 bg-surface-container-highest text-on-surface py-3 px-6 rounded-DEFAULT font-medium hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+                        Add to Cart
+                    </button>
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 px-6 rounded-DEFAULT font-medium hover:opacity-90 transition-opacity flex items-center justify-center shadow-lg shadow-primary/20">
+                        Buy Now
+                    </button>
+</div>
+<!-- Accordions -->
+<div class="border-t border-surface-container-high">
+<details class="group py-4 border-b border-surface-container-high" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none font-medium text-on-surface">
+                            Product Details
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="pt-4 text-sm text-on-surface-variant leading-relaxed">
+<ul class="list-disc pl-5 space-y-2">
+<li>100% Italian Merino Wool outer</li>
+<li>Viscose lining for smooth layering</li>
+<li>Concealed horn button fastening</li>
+<li>Two side welt pockets, two interior pockets</li>
+<li>Dry clean only</li>
+<li>Made in Portugal</li>
+</ul>
+</div>
+</details>
+<details class="group py-4 border-b border-surface-container-high">
+<summary class="flex justify-between items-center cursor-pointer list-none font-medium text-on-surface">
+                            Shipping &amp; Returns
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="pt-4 text-sm text-on-surface-variant leading-relaxed">
+<p>Free standard shipping on all orders over $200. Express shipping available at checkout. You can return any item within 30 days of receipt for a full refund or exchange, provided it is unused and in original packaging.</p>
+</div>
+</details>
+</div>
+</div>
+</div>
+<!-- Related Products (Bento Grid Style) -->
+<section class="mt-24">
+<h2 class="text-2xl font-headline font-semibold text-on-surface mb-8">Complete the Look</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+<!-- Large Feature Item -->
+<a class="group md:col-span-2 row-span-2 relative block overflow-hidden rounded-lg bg-surface-container-low isolate" href="#">
+<img alt="Related Product 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stylish man wearing a charcoal wool coat over a crisp white textured knit sweater, standing in a naturally lit minimal studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtEKbok7e6RWcs6Ld1wm4IcxcNVtIzF4i3CQS3fbZz9a3GoV2MU6DDaMBu-ZLz38rotZrIfo5zwloJm1sJysjhXHMk5Lt8FigBbUKpcBJtAGfvc_yVPshNWmS5PmFL-nkQ2zxl9xWrOEQzfUUQI2tqH4k0OH5U_jS9-6H-JkwzLay-evfNr5B3j2283Tnc5yPP5MCK_qz7drtbUpykVEq0kTh66f57GtvQdhVrwJ4SNinslMLZq4DC8yKbPYKCoj0-ekvzOi0yUaUW"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="text-on-surface-variant text-surface-bright mb-1 font-medium tracking-wide text-sm">ESSENTIALS</p>
+<h3 class="text-2xl font-bold text-surface-lowest text-white mb-2">The Cashmere Turtleneck</h3>
+<p class="text-lg text-surface-container">$185.00</p>
+</div>
+</a>
+<!-- Standard Item 1 -->
+<a class="group relative block overflow-hidden rounded-lg bg-surface-container-highest isolate" href="#">
+<img alt="Related Product 2" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105" data-alt="Pair of minimalist white leather sneakers with subtle grey accents on a light grey concrete surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Y7-iZ3-Xxv8iPPH8AG48XG95GcZ340DZAKa6oZATNV9SrmLLxctU8WNRK4rI7XWaAuJJr6qyjMJXjEfUjYcXaK8NTDDKYyKh3wysBghTNJ2J_lKZHFErlwlVqbu_JCtaDP3NVV3hRY81K89IhSqNN71eyr9LRMn2r0VU3tzw5rdRn0gXC5qz8u4RaXQmghq4HPCWAZGqR3DJR6ffT4bnagPGQIwBVlvOmSD9VW3Ej_9ohqQ7GQjaeD_Xg4VIQCFF-cGJn6kV-f-x"/>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-surface/90 backdrop-blur-sm">
+<h3 class="text-base font-medium text-on-surface">Minimalist Leather Sneaker</h3>
+<p class="text-sm text-on-surface-variant mt-1">$145.00</p>
+</div>
+</a>
+<!-- Standard Item 2 -->
+<a class="group relative block overflow-hidden rounded-lg bg-surface-container-highest isolate" href="#">
+<img alt="Related Product 3" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105" data-alt="Classic silver stainless steel men's dress watch with black leather strap on a dark slate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2i2_DVOWbhFE6piiPvXRKQuvDIr70FnsvQ4SskOxjLD-lhkR4qPQ4cA5CqS7m3VJjY31fDgDOSGSNkbjmzG-WKUVBT31PrsNgVfOUQgbv3uaI6JgA30J2UfufVveX-S9P6cCX2fb_mTawL4CwysdxcxDYixBvhGALj75AQYZCV4b6l9IxOT1s9FyuN4ggd7io5pXnOpjh6oDKyThR4MpEi7jPnwiK3g_xaQ7xU-gEs6jxYpcB3eWf1prRzZe9MfQuV30C-nZbIqR"/>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-surface/90 backdrop-blur-sm">
+<h3 class="text-base font-medium text-on-surface">Atelier Chronograph</h3>
+<p class="text-sm text-on-surface-variant mt-1">$220.00</p>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-slate-100 dark:bg-slate-950 bg-surface-container-low flat no-shadows">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div>
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-100 text-on-surface">PortoCommerce</span>
+<p class="mt-4 font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-on-surface-variant">© 2024 PortoCommerce. The Digital Atelier.</p>
+</div>
+<nav class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 text-on-surface-variant hover:text-on-surface hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Newsletter</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 text-on-surface-variant hover:text-on-surface hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Shop</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 text-on-surface-variant hover:text-on-surface hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Sustainability</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 text-on-surface-variant hover:text-on-surface hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 text-on-surface-variant hover:text-on-surface hover:underline decoration-indigo-500 underline-offset-4 transition-opacity duration-200" href="#">Privacy</a>
+</nav>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS orders (
+  id VARCHAR(64) PRIMARY KEY,
+  user_email VARCHAR(255) NOT NULL,
+  status VARCHAR(40) NOT NULL,
+  eta VARCHAR(80) NOT NULL,
+  total NUMERIC(12, 2) NOT NULL,
+  address TEXT,
+  timeline TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id VARCHAR(64) PRIMARY KEY,
+  order_id VARCHAR(64) NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+  product_id VARCHAR(64) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  quantity INTEGER NOT NULL,
+  price NUMERIC(12, 2) NOT NULL
+);
