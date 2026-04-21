@@ -26,11 +26,20 @@ gradle :services:api-gateway:bootRun
 In `frontend/.env.local` set:
 ```bash
 NEXT_PUBLIC_API_MODE=real
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+NEXT_PUBLIC_API_BASE_URL=/api/proxy
+API_GATEWAY_BASE_URL=http://localhost:8080
 ```
 
 Then run:
 ```bash
 cd frontend
-npm run dev
+npm run dev:real
 ```
+
+## Integration smoke checklist
+- `GET /products` returns `200`.
+- `POST /auth/register` or `POST /auth/login` returns `200` and a token.
+- `GET /cart` returns `200` and cart totals.
+- `POST /checkout` with a non-empty cart returns `200` and `orderId`.
+- `GET /orders` returns `200` for current session user.
+- `GET /admin/inventory` returns `403` for non-admin and `200` for admin.

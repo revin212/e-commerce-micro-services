@@ -1,4 +1,5 @@
 import { Badge, Card, Input, Pagination, RowActionsMenu } from "@/components/ui";
+import type { AdminDashboard } from "@/lib/api/contracts/admin";
 
 export function KpiCard({ label, value }: { label: string; value: string }) {
   return (
@@ -9,15 +10,15 @@ export function KpiCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function AlertBanner() {
+export function AlertBanner({ lowStockCount }: { lowStockCount: number }) {
   return (
     <div className="rounded-lg bg-error-container px-4 py-3 text-sm text-error">
-      12 SKUs are low stock and need replenishment.
+      {lowStockCount} SKUs are low stock and need replenishment.
     </div>
   );
 }
 
-export function InventoryTable() {
+export function InventoryTable({ inventory }: { inventory: AdminDashboard["inventory"] }) {
   return (
     <div className="rounded-lg bg-surface-container-low p-4">
       <div className="mb-4 flex items-center justify-between gap-3">
@@ -33,16 +34,18 @@ export function InventoryTable() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="py-2">ATL-001</td>
-            <td className="py-2">22</td>
-            <td className="py-2"><Badge>In stock</Badge></td>
-            <td className="py-2"><RowActionsMenu items={["Edit", "Archive"]} /></td>
-          </tr>
+          {inventory.map((item) => (
+            <tr key={item.productId}>
+              <td className="py-2">{item.sku}</td>
+              <td className="py-2">{item.stock}</td>
+              <td className="py-2"><Badge>{item.status.replaceAll("_", " ")}</Badge></td>
+              <td className="py-2"><RowActionsMenu items={["Edit", "Archive"]} /></td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <div className="mt-4">
-        <Pagination page={1} total={4} />
+        <Pagination page={1} total={Math.max(1, Math.ceil(inventory.length / 10))} />
       </div>
     </div>
   );

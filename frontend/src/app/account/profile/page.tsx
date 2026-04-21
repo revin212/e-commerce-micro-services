@@ -1,10 +1,11 @@
 import { AccountSidebar } from "@/components/layout";
 import { Button, Card, Input } from "@/components/ui";
 import { api } from "@/lib/api/client/fetcher";
+import { endpoints } from "@/lib/api/client/endpoints";
 import type { Account } from "@/lib/api/contracts/account";
 
 export default async function AccountProfilePage() {
-  const account = await api.get<Account>("/account");
+  const account = await api.get<Account>(endpoints.account);
   return (
     <div className="mx-auto grid max-w-7xl gap-6 px-6 py-10 lg:grid-cols-[260px_1fr]">
       <AccountSidebar />

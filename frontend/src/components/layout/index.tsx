@@ -2,15 +2,24 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Chip, Drawer, Input } from "@/components/ui";
+import { useAuthStore } from "@/lib/store/auth";
 import { useCartStore } from "@/lib/store/cart";
 import { useSearchStore } from "@/lib/store/search";
 
 export function AppHeader() {
   const pathname = usePathname();
   const { items } = useCartStore();
+  const { user, hydrated, hydrate, logout } = useAuthStore();
   const { setOverlayOpen } = useSearchStore();
+
+  useEffect(() => {
+    if (!hydrated) {
+      void hydrate();
+    }
+  }, [hydrate, hydrated]);
+
   return (
     <header className="sticky top-0 z-40 glass-surface shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
@@ -30,6 +39,17 @@ export function AppHeader() {
         <div className="flex items-center gap-2">
           <Button variant="secondary" onClick={() => setOverlayOpen(true)}>Search</Button>
           <Link href="/cart" className="rounded-DEFAULT bg-surface-container-high px-3 py-2 text-sm">Cart ({items.length})</Link>
+          {user ? (
+            <button
+              className="rounded-DEFAULT bg-surface-container-high px-3 py-2 text-sm"
+              onClick={() => void logout()}
+              type="button"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link href="/login" className="rounded-DEFAULT bg-surface-container-high px-3 py-2 text-sm">Login</Link>
+          )}
         </div>
       </div>
     </header>
@@ -121,7 +141,7 @@ export function CartDrawer() {
       <Drawer open={open} onClose={() => setOpen(false)}>
         <h3 className="mb-3 text-lg font-semibold">Cart</h3>
         <div className="space-y-2 text-sm">
-          {items.length === 0 ? <p>No items yet.</p> : items.map((item) => <p key={item.id}>{item.name} x {item.quantity}</p>)}
+          {items.length === 0 ? <p>No items yet.</p> : items.map((item) => <p key={item.productId}>{item.name} x {item.quantity}</p>)}
         </div>
       </Drawer>
     </>

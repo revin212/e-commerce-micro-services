@@ -11,10 +11,11 @@ type CheckoutState = {
   setStep: (step: number) => void;
   setField: (field: "address" | "shippingMethodId" | "payment", value: string) => void;
   setBillingSameAsShipping: (value: boolean) => void;
+  reset: () => void;
 };
 
 export const useCheckoutStore = create<CheckoutState>((set) => ({
-  step: 2,
+  step: 0,
   address: "",
   shippingMethodId: "standard",
   payment: "",
@@ -22,4 +23,5 @@ export const useCheckoutStore = create<CheckoutState>((set) => ({
   setStep: (step) => set({ step }),
   setField: (field, value) => set({ [field]: value } as Partial<CheckoutState>),
   setBillingSameAsShipping: (billingSameAsShipping) => set({ billingSameAsShipping }),
+  reset: () => set({ step: 0, address: "", shippingMethodId: "standard", payment: "", billingSameAsShipping: true }),
 }));

@@ -1,8 +1,0 @@
-{
-  "id": "ord_1001",
-  "status": "shipped",
-  "eta": "Apr 25",
-  "total": 345,
-  "timeline": ["processing", "packed", "shipped", "delivered"],
-  "address": "29 Mercer St, New York, NY"
-}

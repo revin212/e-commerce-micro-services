@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { api } from "@/lib/api/client/fetcher";
+import { endpoints } from "@/lib/api/client/endpoints";
 import type { ListProductsResponse } from "@/lib/api/contracts/products";
 import { Button } from "@/components/ui";
 import { AtelierCarousel, ProductCard } from "@/components/product";
 
 export default async function Home() {
-  const products = await api.get<ListProductsResponse>("/products");
+  const products = await api.get<ListProductsResponse>(endpoints.products);
   return (
     <div className="mx-auto max-w-7xl space-y-12 px-6 py-10">
       <section className="rounded-xl bg-surface-container-low p-10 text-center">

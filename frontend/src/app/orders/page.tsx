@@ -2,10 +2,11 @@ import Link from "next/link";
 import { OrderStatusPill } from "@/components/orders";
 import { Card } from "@/components/ui";
 import { api } from "@/lib/api/client/fetcher";
+import { endpoints } from "@/lib/api/client/endpoints";
 import type { Order } from "@/lib/api/contracts/orders";
 
 export default async function OrdersPage() {
-  const orders = await api.get<Order[]>("/orders");
+  const orders = await api.get<Order[]>(endpoints.orders);
   return (
     <div className="mx-auto max-w-7xl space-y-4 px-6 py-10">
       <h1 className="text-3xl font-semibold">Orders</h1>

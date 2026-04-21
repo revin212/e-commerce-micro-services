@@ -1,35 +1,31 @@
 "use client";
 
 import { create } from "zustand";
-
-type CartItem = { id: string; name: string; price: number; quantity: number };
+import type { CartResponse } from "@/lib/api/contracts/cart";
 
 type CartState = {
-  items: CartItem[];
-  add: (item: Omit<CartItem, "quantity">) => void;
-  remove: (id: string) => void;
-  updateQty: (id: string, quantity: number) => void;
+  items: CartResponse["items"];
+  subtotal: number;
+  shipping: number;
+  tax: number;
+  total: number;
+  setFromResponse: (cart: CartResponse) => void;
   clear: () => void;
 };
 
 export const useCartStore = create<CartState>((set) => ({
   items: [],
-  add: (item) =>
-    set((state) => {
-      const existing = state.items.find((it) => it.id === item.id);
-      if (existing) {
-        return {
-          items: state.items.map((it) =>
-            it.id === item.id ? { ...it, quantity: it.quantity + 1 } : it,
-          ),
-        };
-      }
-      return { items: [...state.items, { ...item, quantity: 1 }] };
+  subtotal: 0,
+  shipping: 0,
+  tax: 0,
+  total: 0,
+  setFromResponse: (cart) =>
+    set({
+      items: cart.items,
+      subtotal: cart.subtotal,
+      shipping: cart.shipping,
+      tax: cart.tax,
+      total: cart.total,
     }),
-  remove: (id) => set((state) => ({ items: state.items.filter((it) => it.id !== id) })),
-  updateQty: (id, quantity) =>
-    set((state) => ({
-      items: state.items.map((it) => (it.id === id ? { ...it, quantity } : it)),
-    })),
-  clear: () => set({ items: [] }),
+  clear: () => set({ items: [], subtotal: 0, shipping: 0, tax: 0, total: 0 }),
 }));

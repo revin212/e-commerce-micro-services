@@ -2,15 +2,16 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs, Button } from "@/components/ui";
 import { ProductDetailsPanel, ProductGallery, ProductGrid, ProductCard } from "@/components/product";
 import { api } from "@/lib/api/client/fetcher";
+import { endpoints } from "@/lib/api/client/endpoints";
 import type { Product } from "@/lib/api/contracts/products";
 
 type Params = { slug: string };
 
 export default async function ProductDetailPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const product = await api.get<Product>(`/products/${slug}`);
+  const product = await api.get<Product>(endpoints.productBySlug(slug));
   if (!product) notFound();
-  const related = await api.get<{ items: Product[] }>("/products");
+  const related = await api.get<{ items: Product[] }>(endpoints.products);
 
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-6 py-10">
@@ -20,7 +21,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         <div className="space-y-4">
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <p className="text-on-surface-variant">{product.description}</p>
-          <ProductDetailsPanel />
+          <ProductDetailsPanel productId={product.id} name={product.name} price={product.price.amount} />
           <Button className="w-full">Buy Now</Button>
         </div>
       </section>

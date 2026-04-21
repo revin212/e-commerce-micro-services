@@ -4,3 +4,8 @@ export type Order = {
   eta: string;
   total: number;
 };
+
+export type OrderDetail = Order & {
+  timeline: string[];
+  address: string;
+};

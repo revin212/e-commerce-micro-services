@@ -1,10 +1,11 @@
 import { ProductCard, ProductGrid } from "@/components/product";
 import { Chip, Input, Pagination, Select, Switch } from "@/components/ui";
 import { api } from "@/lib/api/client/fetcher";
+import { endpoints } from "@/lib/api/client/endpoints";
 import type { ListProductsResponse } from "@/lib/api/contracts/products";
 
 export default async function ShopPage() {
-  const products = await api.get<ListProductsResponse>("/products");
+  const products = await api.get<ListProductsResponse>(endpoints.products);
   return (
     <div className="mx-auto grid max-w-7xl gap-6 px-6 py-10 lg:grid-cols-[280px_1fr]">
       <aside className="space-y-4 rounded-lg bg-surface-container-low p-4">

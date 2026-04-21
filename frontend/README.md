@@ -9,6 +9,7 @@ Frontend-first Next.js implementation for PortoCommerce with typed API contracts
 - `npm run build` - production build
 - `npm run lint` - ESLint
 - `npm run typecheck` - TypeScript no-emit checks
+- `npm run test:integration` - backend integration smoke flow
 - `npm run format` - Prettier format
 
 ## Environment
@@ -16,8 +17,9 @@ Frontend-first Next.js implementation for PortoCommerce with typed API contracts
 Copy `.env.local.example` to `.env.local`:
 
 ```bash
-NEXT_PUBLIC_API_MODE=mock
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+NEXT_PUBLIC_API_MODE=real
+NEXT_PUBLIC_API_BASE_URL=/api/proxy
+API_GATEWAY_BASE_URL=http://localhost:8080
 ```
 
 ## Contracts and mocks
