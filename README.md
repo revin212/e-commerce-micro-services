@@ -35,6 +35,13 @@ Main local endpoints:
 - Kibana: `http://localhost:5601`
 - Jaeger: `http://localhost:16686`
 
+## Default admin login (local/dev)
+
+When running the real backend locally, an admin user is seeded:
+
+- Email: `revin@example.com`
+- Password: `Passw0rd!`
+
 ## Frontend
 
 ```bash
@@ -54,7 +61,8 @@ Set:
 
 ```bash
 NEXT_PUBLIC_API_MODE=real
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+NEXT_PUBLIC_API_BASE_URL=/api/proxy
+API_GATEWAY_BASE_URL=http://127.0.0.1:8080
 ```
 
 Then run:
